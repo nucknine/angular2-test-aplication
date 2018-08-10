@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-
-import { EventsAppComponent } from './events-app.component'
+import { AppComponent } from './app.component'
+import { MyTable } from './my-table/my-table.component';
 
 @NgModule({
   imports: [BrowserModule],
-  declarations: [EventsAppComponent],
-  bootstrap: [EventsAppComponent]
+  declarations: [AppComponent, MyTable],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
