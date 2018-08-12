@@ -11,10 +11,13 @@ export class ProductComponent {
     @Input()
     product: Product;
 
+    // выходное свойство (событие (delete)) на родителе 
     @Output()
     delete: EventEmitter<number> = new EventEmitter();
 
-    deleteProduct() {        
+    deleteProduct() {
+        // вызвать событие delete на родителе из дочернго компонента по клику 
+        // (событие click на дочернем компоненте вызывает deleteProduct(), что иницирует вызов нашего события delete)      
         this.delete.emit();
     }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { ProductService, Product } from '../services/product';
 
 @Component({
@@ -8,23 +8,21 @@ import { ProductService, Product } from '../services/product';
 })
 export class MyTableComponent {
 
+    @Input() 
+    rows: number = 0;    
+    filtered: any[] = [];             
+    products: Array<Product> = []; 
+    
+    constructor(private productService: ProductService) {
+        this.products = this.productService.getProducts(); 
+    }    
+    
     deleteHandler(value) {
         console.log("Deleted ProductId - " + value);
         this.deleteProduct(value);
     }
 
-    products: Array<Product> = []; 
-
-    constructor(private productService: ProductService) {
-        this.products = this.productService.getProducts(); 
-    }
-
-    @Input() 
-    rows: number = 0;
-
-    filtered: any[] = [];          
-
-    deleteProduct(value) {
+    private deleteProduct(value) {
         let delItem = [value];
         for (var i = 0; i < this.filtered.length; i++) {
             var obj = this.filtered[i];
