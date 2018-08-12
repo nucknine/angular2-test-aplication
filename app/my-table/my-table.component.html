@@ -9,8 +9,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor='let product of filter'>
-                <product></product>           
+            <tr *ngFor='let product of filtered' >
+                <product (delete)="deleteHandler(product.id)" [product]="product"></product>
             </tr>
         </tbody>
     </table>
