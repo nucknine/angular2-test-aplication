@@ -3,14 +3,14 @@ import {Product} from '../services/product';
 
 @Component({
     moduleId: module.id,
-    selector: 'product',
+    selector: '[product]',
     templateUrl: 'product.component.html',
     styleUrls: ['product.component.css']
 })
 export class ProductComponent {
     @Input()
     product: Product;
-
+    
     // выходное свойство (событие (delete)) на родителе 
     @Output()
     delete: EventEmitter<number> = new EventEmitter();

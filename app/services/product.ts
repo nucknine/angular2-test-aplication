@@ -6,15 +6,22 @@ export class Product {
       public rating: number,
       public description: string,
       public categories: Array<string>) {
+        
     }
   }
   
   export class ProductService {
+
     getProducts(): Array<Product> {
       return products.map(p => new Product(p.id, p.title, p.price, p.rating, p.description, p.categories));
     }
+    getCategories(): Array<String> {
+      return categories;
+    }
   }
   
+  var categories = ['electronics', 'hardware', 'books'];
+
   var products = [
     {
       "id": 0,

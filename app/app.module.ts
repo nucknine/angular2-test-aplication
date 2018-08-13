@@ -4,9 +4,10 @@ import { AppComponent } from './app.component'
 import { MyTableComponent } from './my-table/my-table.component';
 import { ProductService } from './services/product';
 import { ProductComponent } from './product/product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule],
   declarations: [AppComponent, MyTableComponent, ProductComponent],
   bootstrap: [AppComponent],
   providers: [ProductService]
