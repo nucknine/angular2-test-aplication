@@ -70,5 +70,45 @@ export class Product {
       "rating": 4.6,
       "description": "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "categories": ["books"]
+    },
+    {
+      "id": 6,
+      "title": "Sixth Product",
+      "price": 54.99,
+      "rating": 4.6,
+      "description": "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categories": ["books"]
+    },
+    {
+      "id": 7,
+      "title": "Sixth Product",
+      "price": 54.99,
+      "rating": 4.6,
+      "description": "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categories": ["books"]
+    },
+    {
+      "id": 8,
+      "title": "Sixth Product",
+      "price": 54.99,
+      "rating": 4.6,
+      "description": "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categories": ["books"]
+    },
+    {
+      "id": 9,
+      "title": "Sixth Product",
+      "price": 54.99,
+      "rating": 4.6,
+      "description": "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categories": ["books"]
+    },
+    {
+      "id": 10,
+      "title": "Sixth Product",
+      "price": 54.99,
+      "rating": 4.6,
+      "description": "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categories": ["books"]
     }
   ];

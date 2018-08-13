@@ -15,7 +15,7 @@ export class MyTableComponent {
     products: Array<Product> = []; 
     categories: Array<String> = []; 
     hightPrice: number = 70;
-    currentCategory: string = 'electronics';
+    currentCategory: string = 'all';    
 
     constructor(private productService: ProductService) {
         this.products = this.productService.getProducts(); 
@@ -34,11 +34,11 @@ export class MyTableComponent {
     }
 
     private deleteProduct(value) {
-        let delItem = [value];
+        let delId = [value];
         for (var i = 0; i < this.products.length; i++) {
             var obj = this.products[i];
         
-            if (delItem.indexOf(obj.id) !== -1) {
+            if (delId.indexOf(obj.id) !== -1) {
                 this.products.splice(i, 1);
                 i--;
                 console.log(this.filtered);
@@ -47,16 +47,22 @@ export class MyTableComponent {
     }
 
     refreshTable(): void {
+        
         this.filtered = [];
-        for (let i = 0; i < this.rows; i++) {
-            if(this.products[i].categories.join(',').includes(this.currentCategory)) {
-                this.filtered.push(this.products[i]);
+        let j = this.rows > this.products.length ? this.products.length : this.rows;
+        for (let i = 0; i < j; i++) {
+            if (this.currentCategory == 'all'){
+                this.filtered.push(this.products[i]);                
+            }
+            if (this.products[i].categories.join(',').includes(this.currentCategory)) {
+                this.filtered.push(this.products[i]);                                          
             }
         }
     }
 
-    ngDoCheck(){
-        this.refreshTable();
+    ngDoCheck(){                  
+        this.refreshTable();        
+        
     }
     ngOnInit(){
         this.refreshTable();        
