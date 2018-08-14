@@ -17,11 +17,23 @@ export class MyTableComponent {
     hightPrice: number = 70;
     currentCategory: string = 'all';    
 
+    addTitle: string;
+    addPrice: number;
+    addRate: number;
+    addDesc: string;
+    addCat: string;
+
     constructor(private productService: ProductService) {
         this.products = this.productService.getProducts(); 
         this.categories = this.productService.getCategories(); 
     }    
 
+    addProduct() {        
+        this.productService.addProduct(this.addTitle, this.addPrice, this.addRate, this.addDesc, this.addCat.split(','));           
+        this.products = this.productService.getProducts(); 
+        this.refreshTable();
+    }
+    
     isHightPrice(price) {
         if (price > this.hightPrice) {
             return true;
