@@ -1,0 +1,16 @@
+<h3>Details of <span *ngIf="product">{{product.title}}</span></h3>
+
+<div *ngIf="product">    
+        <p><b>title: </b>{{product.title}}</p>
+        <p><b>price: </b>{{product.price}}</p>
+        <p><b>rating: </b>{{product.rating}}</p>
+        <p><b>code: </b>{{product.id}}</p>
+        <p><b>description: </b>{{product.description}}</p>
+        <p><b>categories: </b>{{product.categories}}</p>
+</div>
+
+<button class="btn btn-default"
+        (click)="goToProducts()">
+        Go back
+</button>
+<a class="btn btn-default" routerLink="/home">back to home page</a>

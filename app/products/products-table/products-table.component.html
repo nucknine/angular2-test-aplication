@@ -1,0 +1,28 @@
+<router-outlet></router-outlet>
+<a class="btn btn-default" routerLink="/home">back to home page</a>
+<div class='table-responsive'>
+    <select class="form-control col-md-2" [(ngModel)]="currentCategory">
+            <option *ngFor="let category of categories" >{{category}}</option>
+            <option selected value="all">all</option>
+    </select>
+    
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>Code</th>                
+                <th>Product</th>
+                <th>Price</th>                
+                <th>Category</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of filtered"                 
+                [product]="product" 
+                [class.red]="isHightPrice(product.price)"
+                [class.gray]="isSelected(product.id)"
+                (click)="onSelect(product)">
+            </tr>
+        </tbody>
+    </table>    
+</div>

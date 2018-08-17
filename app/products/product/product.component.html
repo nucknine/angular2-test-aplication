@@ -1,7 +1,7 @@
     <td>
-        <button class="btn btn-danger" (click)="deleteProduct(product.id)">
-            delete
-        </button>
+        <a class="btn btn-default" routerLink="{{ product.id }}">
+            details
+        </a>
     </td>
     <td>{{ product.id }}</td>               
     <td>{{ product.title }}</td>

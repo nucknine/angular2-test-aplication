@@ -1,0 +1,35 @@
+<div class='table-responsive'>
+    <select class="form-control col-md-2" [(ngModel)]="currentCategory">
+            <option *ngFor="let category of categories" >{{category}}</option>
+            <option selected value="all">all</option>
+    </select>
+    
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>Code</th>                
+                <th>Product</th>
+                <th>Price</th>                
+                <th>Category</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of filtered" 
+                product (delete)="deleteProduct(product.id)"                 
+                [class.red]="isHightPrice(product.price)"
+                [class.gray]="isSelected(product.id)"
+                (click)="onSelect(product)">
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+                            delete
+                        </button>
+                    </td>
+                    <td>{{ product.id }}</td>               
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.categories }}</td>
+            </tr>
+        </tbody>
+    </table>    
+</div>
