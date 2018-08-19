@@ -15,7 +15,7 @@ import { AuthGuard } from "../services/auth-guard.service";
         {
             path: "admin",
             component: AdminHomeComponent,
-            canActivate: [AuthGuard],
+            // canActivate: [AuthGuard],
             children: [
                 {
                     path: "addProduct",

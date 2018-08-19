@@ -25,7 +25,7 @@ import { LoginComponent } from "./login/login.component";
         },
         {
             path: "admin", 
-            canActivate: [AuthGuard],
+            // canActivate: [AuthGuard],
             component: AdminHomeComponent
         },        
         // {
