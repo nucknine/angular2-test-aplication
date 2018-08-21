@@ -1,22 +1,23 @@
 import { Injectable } from "@angular/core";
 import { Product } from "./product";
 
-  
+
   @Injectable()
   export class ProductService {
 
-    getProducts(): Promise<Array<Product>> 
-    {      
+    // Отправка GET запроса нв сервер
+    getProducts(): Promise<Array<Product>>
+    {
       return productsPromise
-      .then(function(n) 
+      .then(function(n)
       {
             return n.map(function(p)
             {
-              return new Product(p.id, p.title, p.price, p.rating, p.description, p.categories);                    
+              return new Product(p.id, p.title, p.price, p.rating, p.description, p.categories);
             });
       });
-    }    
-    
+    }
+
     getProduct(id: number): Promise<Product> {
       return productsPromise
       .then(n => n.find(p => p.id === id ));
@@ -26,19 +27,19 @@ import { Product } from "./product";
       return categoriesPromise;
     }
 
-    addProduct(title, price, rating, description, categories) {
+    // Отправка POST запроса на сервер, добавление нового продукта в базу.
+    addProduct(prod) {
       try {
-
-        if (title && price && rating && description && categories) {
+        if (prod.title && prod.price && prod.rating && prod.description && prod.categories) {
           let id = products.length,
           product = {
             "id": id,
-            "title": title,
-            "price": price,
-            "rating": rating,
-            "description": description,
-            "categories": categories.split(',')
-          }        
+            "title": prod.title,
+            "price": prod.price,
+            "rating": prod.rating,
+            "description": prod.description,
+            "categories": prod.categories.split(',')
+          }
           products.push(product);
         } else {
           throw new Error("some fields are empty");
@@ -52,7 +53,7 @@ import { Product } from "./product";
       let delId = [value];
       for (var i = 0; i < products.length; i++) {
           var obj = products[i];
-      
+
           if (delId.indexOf(obj.id) !== -1) {
               products.splice(i, 1);
               i--;
@@ -60,8 +61,7 @@ import { Product } from "./product";
       }
     }
   }
-  
-  
+
   var categories = ['electronics', 'hardware', 'books'],
   products = [
     {

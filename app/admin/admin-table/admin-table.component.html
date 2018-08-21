@@ -3,20 +3,20 @@
             <option *ngFor="let category of categories" >{{category}}</option>
             <option selected value="all">all</option>
     </select>
-    
+
     <table class='table table-striped'>
         <thead>
             <tr>
                 <th>Action</th>
-                <th>Code</th>                
+                <th>Code</th>
                 <th>Product</th>
-                <th>Price</th>                
-                <th>Category</th>                
+                <th>Price</th>
+                <th>Category</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of filtered" 
-                product (delete)="deleteProduct(product.id)"                 
+            <tr *ngFor="let product of filtered"
+                product (delete)="deleteProduct(product.id)"
                 [class.red]="isHightPrice(product.price)"
                 [class.gray]="isSelected(product.id)"
                 (click)="onSelect(product)">
@@ -24,12 +24,15 @@
                         <button class="btn btn-danger" (click)="deleteProduct(product.id)">
                             delete
                         </button>
+                        <button class="btn btn-success" (click)="editProduct(product.id)">
+                            edit
+                        </button>
                     </td>
-                    <td>{{ product.id }}</td>               
+                    <td>{{ product.id }}</td>
                     <td>{{ product.title }}</td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.categories }}</td>
             </tr>
         </tbody>
-    </table>    
+    </table>
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import "./rx-js.operators";
 
 @Component({
   moduleId: module.id,

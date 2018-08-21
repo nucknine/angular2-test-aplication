@@ -22,6 +22,10 @@ import { AuthGuard } from "../services/auth-guard.service";
                     component: AdminAddProductComponent
                 },
                 {
+                    path: "editProduct/:id",
+                    component: AdminAddProductComponent
+                },
+                {
                     path: "adminTable",
                     component: AdminTableComponent
                 }
